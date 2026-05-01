@@ -1,11 +1,14 @@
-import React from 'react';
+import PopularProducts from "@/Components/PopularProducts";
 
-const HomePage = () => {
+
+
+
+
+
+export default function Home() {
   return (
-    <div>
-      <h2 className='text-center bg-amber-400'>HomePage</h2>
-    </div>
+    <main>
+      <PopularProducts />
+    </main>
   );
-};
-
-export default HomePage;
+}

@@ -1,0 +1,79 @@
+[
+  {
+    "id": 1,
+    "name": "UV Protection Sunglasses",
+    "brand": "SunShade",
+    "price": 15,
+    "rating": 4.7,
+    "stock": 10,
+    "description": "Stylish UV protection sunglasses perfect for hot summer days and outdoor travel.",
+    "image": "https://i.ibb.co/LDKqh9bp/Sunglasses.jpg",
+    "category": "Accessories"
+  },
+  {
+    "id": 2,
+    "name": "Portable Handheld Fan",
+    "brand": "CoolBreeze",
+    "price": 12,
+    "rating": 4.6,
+    "stock": 18,
+    "description": "Rechargeable handheld fan to stay cool during extreme summer heat.",
+    "image": "https://i.ibb.co/TDBk0jh4/Handheld-Fan.jpg",
+    "category": "Electronics"
+  },
+  {
+    "id": 3,
+    "name": "Summer Skin Care Kit",
+    "brand": "FreshGlow",
+    "price": 20,
+    "rating": 4.8,
+    "stock": 14,
+    "description": "Complete skincare essentials for healthy and glowing summer skin.",
+    "image": "https://i.ibb.co/DDnckRYn/Skin-Care.jpg",
+    "category": "Skincare"
+  },
+  {
+    "id": 4,
+    "name": "Waterproof Summer Watch",
+    "brand": "TimeZone",
+    "price": 25,
+    "rating": 4.5,
+    "stock": 9,
+    "description": "Elegant waterproof watch designed for beach trips and summer adventures.",
+    "image": "https://i.ibb.co/DDKK7ZQm/summer-watch.jpg",
+    "category": "Accessories"
+  },
+  {
+    "id": 5,
+    "name": "Sun Shade Cap",
+    "brand": "SunStyle",
+    "price": 10,
+    "rating": 4.4,
+    "stock": 20,
+    "description": "Lightweight summer cap for sun protection and outdoor comfort.",
+    "image": "https://i.ibb.co/vpv9Ng5/Sun-Shade.jpg",
+    "category": "Fashion"
+  },
+  {
+    "id": 6,
+    "name": "Summer Refresh Drink",
+    "brand": "CoolSip",
+    "price": 6,
+    "rating": 4.3,
+    "stock": 30,
+    "description": "Refreshing cold drink perfect for staying energized in summer.",
+    "image": "https://i.ibb.co/35NmCDW4/summer-3.jpg",
+    "category": "Beverages"
+  },
+  {
+    "id": 7,
+    "name": "Urban Summer Wear",
+    "brand": "UrbanWear",
+    "price": 18,
+    "rating": 4.7,
+    "stock": 16,
+    "description": "Comfortable and breathable urban outfit for hot summer weather.",
+    "image": "https://i.ibb.co/pB4CNzt0/Urban-Wear.jpg",
+    "category": "Clothing"
+  }
+]

@@ -107,7 +107,7 @@ const Footer = () => {
 
       </div>
 
-      {/* 🔥 CUSTOM ANIMATION */}
+    
       <style jsx>{`
         .animate-fadeIn {
           animation: fadeIn 0.8s ease-in-out;
