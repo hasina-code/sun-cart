@@ -24,7 +24,7 @@ const Footer = () => {
                 height={38}
                 className="hover:scale-110 transition duration-300"
               />
-              <h2 className="text-2xl font-extrabold text-gray-900 dark:text-white">
+              <h2 className="text-2xl font-extrabold text-gray-900 dark:text-white animate__animated animate__pulse animate__infinite animate__slow">
                 Sun<span className="text-yellow-500">Cart</span>
               </h2>
             </div>
@@ -106,27 +106,6 @@ const Footer = () => {
         </div>
 
       </div>
-
-    
-      <style jsx>{`
-        .animate-fadeIn {
-          animation: fadeIn 0.8s ease-in-out;
-        }
-
-        .animate-fadeUp {
-          animation: fadeUp 1s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeUp {
-          from { opacity: 0; transform: translateY(30px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
 
     </footer>
   );

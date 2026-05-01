@@ -17,19 +17,17 @@ const ProductCard = ({ product }) => {
     >
       {/* Image Section */}
       <div className="relative w-full aspect-square overflow-hidden rounded-xl group">
-
         <Image
           src={product.image}
           fill
           alt={product.name}
           loading="lazy"
-          sizes="(max-width: 768px) 100vw,
-                 (max-width: 1200px) 50vw,
-                 33vw"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="
             object-cover
             group-hover:scale-110
-            transition duration-500
+            transition duration-500 
+            animate__animated animate__pulse animate__infinite animate__slow
           "
         />
 
@@ -47,14 +45,9 @@ const ProductCard = ({ product }) => {
 
       {/* Info */}
       <div className="mt-4 space-y-2 animate__animated animate__fadeInUp animate__delay-1s">
-
         <h2 className="text-lg font-semibold line-clamp-1">
           {product.name}
         </h2>
-
-        <p className="text-sm text-gray-500">
-          Brand: {product.brand}
-        </p>
       </div>
 
       {/* Rating + Price */}
@@ -62,33 +55,24 @@ const ProductCard = ({ product }) => {
         flex items-center justify-between mt-4
         animate__animated animate__fadeInUp animate__delay-1s
       ">
-
         <div className="flex items-center gap-2 text-orange-500">
           <FaStar />
           <p className="font-medium">{product.rating}</p>
         </div>
-
         <p className="text-lg font-bold">
           ${product.price}
         </p>
       </div>
 
-      {/* Button */}
+      {/*  Button with Animation Section */}
       <Link href={`/products/${product.id}`} className="block mt-5">
-
         <Button
           variant="outline"
-          className="
-            w-full
-            transition-all duration-300
-            hover:bg-black hover:text-white
-            hover:scale-[1.03]
-            active:scale-95
-          "
-        >
-          View Details
+          className="w-ful font-semibold  transition-all duration-300 animate__animated  animate__pulse 
+            animate__infinite animate__slow hover:animate__none hover:bg-black  hover:text-white
+             hover:scale-[1.05] hover:shadow-lg active:scale-95">
+           View Details
         </Button>
-
       </Link>
     </Card>
   );

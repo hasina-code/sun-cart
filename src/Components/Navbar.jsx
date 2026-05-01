@@ -14,7 +14,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
 
         {/* Logo */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 animate__animated animate__pulse animate__infinite animate__slow">
           <Image
             src="/logo.png"
             alt="logo"
