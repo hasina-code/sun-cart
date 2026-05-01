@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
+
+import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -60,7 +61,7 @@ const Navbar = () => {
           className="md:hidden text-2xl"
           onClick={() => setOpen(!open)}
         >
-          {open ? <X /> : <Menu />}
+          {open ? <AiOutlineClose /> : <AiOutlineMenu />}
         </button>
       </div>
 
