@@ -1,52 +1,32 @@
 import Image from "next/image";
 
-
-
 const brands = [
 
   {
-
     id: 1,
-
     name: "SunShade",
-
     image: "https://i.ibb.co/vpv9Ng5/Sun-Shade.jpg",
-
   },
 
   {
-
     id: 2,
-
     name: "CoolBreeze",
-
     image: "https://i.ibb.co/TDBk0jh4/Handheld-Fan.jpg",
-
   },
 
   {
-
     id: 3,
-
     name: "SkinCare+",
-
     image: "https://i.ibb.co/DDnckRYn/Skin-Care.jpg",
-
   },
 
   {
-
     id: 4,
-
     name: "UrbanWear",
-
     image: "https://i.ibb.co/pB4CNzt0/Urban-Wear.jpg",
-
   },
 
 ];
-
-
 
 const TopBrands = () => {
 
@@ -82,7 +62,6 @@ const TopBrands = () => {
                 alt={brand.name}
 
                 className="object-cover rounded-full"
-
               />
 
             </div>
