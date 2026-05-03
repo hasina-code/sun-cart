@@ -20,7 +20,7 @@ const NavLinks = ({ type, setOpen }) => {
     return (
       <>
         {/* LOGO */}
-        <div className="flex items-center gap-2 ">
+        <div className="flex items-center gap-2">
           <Image src="/logo.png" alt="logo" width={38} height={38} />
           <h3 className="font-black text-xl">
             Sun<span className="text-orange-300">Cart</span>
