@@ -46,6 +46,7 @@ export default function ProductDetailsPage() {
                     alt={product.name}
                        fill
                      sizes="(max-width: 768px) 50vw, 24vw"
+                     
                    />
             </div>
 

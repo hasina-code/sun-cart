@@ -48,32 +48,20 @@ const TopBrands = () => {
 
             className="border rounded-xl p-5 text-center hover:shadow-lg transition duration-300 animate__animated animate__zoomIn"
           >
-
             <div className="relative w-28 h-28 mx-auto mb-5 p-1 border-2 border-slate-50 rounded-full bg-slate-50 overflow-hidden
-
-                  animate__animated animate__pulse animate__infinite animate__slow">
+               animate__animated animate__pulse animate__infinite animate__slow">
 
               <Image
-
                 src={brand.image}
-
                 fill
-
                 alt={brand.name}
-
                 className="object-cover rounded-full"
               />
-
             </div>
-
             <h3 className="text-sm font-semibold">
-
               {brand.name}
-
             </h3>
-
           </div>
-
         ))}
 
       </div>

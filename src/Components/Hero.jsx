@@ -70,17 +70,18 @@ const Hero = () => {
               fill
               className="object-cover"
               priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1280px"
             />
             
             <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
           </div>
-          <div className="relative h-full flex flex-col items-start justify-center px-8 md:px-16 space-y-4 md:space-y-6">
+          <div className="relative h-full flex flex-col items-center justify-center px-8 md:px-16 space-y-4 md:space-y-6">
             
-            <div className={`text-3xl md:text-4xl ${slide.accentColor} animate-pulse drop-shadow-lg`}>
+            <div className={`text-3xl md:text-5xl ${slide.accentColor} animate-pulse drop-shadow-lg`}>
               {slide.icon}
             </div>
 
-            <h1 className={`text-3xl md:text-6xl font-black max-w-2xl leading-tight ${slide.titleColor} drop-shadow-md`}>
+            <h1 className={`text-3xl md:text-5xl font-black max-w-2xl leading-tight ${slide.titleColor} drop-shadow-md`}>
               {slide.title}
             </h1>
 
