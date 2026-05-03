@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import toast from "react-hot-toast";
+import { Suspense } from "react";
 
 import { authClient } from "@/lib/auth-client";
 
@@ -18,7 +19,8 @@ import {
 
 import { GrGoogle } from "react-icons/gr";
 
-export default function LoginPage() {
+
+function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -28,7 +30,6 @@ export default function LoginPage() {
     e.preventDefault();
 
     const form = new FormData(e.currentTarget);
-
     const email = form.get("email");
     const password = form.get("password");
 
@@ -43,7 +44,6 @@ export default function LoginPage() {
     }
 
     toast.success("Login Successful");
-
     router.push(redirect || "/");
   };
 
@@ -56,14 +56,10 @@ export default function LoginPage() {
 
   return (
     <div className="flex items-center justify-center min-h-[80vh] px-4">
- 
       <Card className="border w-full max-w-[500px] py-10 shadow-lg">
-        <h1 className="text-center text-2xl md:text-3xl font-bold">
-          Login
-        </h1>
+        <h1 className="text-center text-2xl md:text-3xl font-bold">Login</h1>
 
         <Form
-        
           className="flex w-full px-6 md:px-10 flex-col gap-4 mt-5"
           onSubmit={onSubmit}
         >
@@ -99,8 +95,12 @@ export default function LoginPage() {
           </p>
 
           <div className="relative my-2">
-             <div className="absolute inset-0 flex items-center"><span className="w-full border-t"></span></div>
-             <div className="relative flex justify-center text-xs uppercase"><span className="bg-white px-2 text-gray-500">Or</span></div>
+            <div className="absolute inset-0 flex items-center">
+              <span className="w-full border-t"></span>
+            </div>
+            <div className="relative flex justify-center text-xs uppercase">
+              <span className="bg-white px-2 text-gray-500">Or</span>
+            </div>
           </div>
 
           <Button
@@ -115,5 +115,18 @@ export default function LoginPage() {
         </Form>
       </Card>
     </div>
+  );
+}
+
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex items-center justify-center min-h-[80vh]">
+        <p>Loading...</p> 
+      </div>
+    }>
+      <LoginForm />
+    </Suspense>
   );
 }

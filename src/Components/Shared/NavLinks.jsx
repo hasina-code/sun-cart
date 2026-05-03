@@ -49,7 +49,8 @@ const NavLinks = ({ type, setOpen }) => {
             </div>
             </div>
           ) : (
-            <div className="flex items-center gap-3 bg-gray-100 px-3 py-2 rounded-full">
+            <div className="flex items-center gap-3 bg-gray-100 px-3 py-2 rounded-full animate__animated animate__fadeInUp
+             hover:shadow-xl transition-all duration-300">
 
               <Image
                 src={user?.image || "/user.png"}
@@ -97,7 +98,8 @@ const NavLinks = ({ type, setOpen }) => {
               </Link>
             </div>
       ) : (
-        <div className="flex items-center justify-between bg-gray-100 p-4 rounded-xl">
+        <div className="flex items-center justify-between bg-gray-100 p-4 rounded-xl animate__animated animate__fadeInUp
+        hover:shadow-xl transition-all duration-300">
 
           <div className="flex items-center gap-3">
             <Image
