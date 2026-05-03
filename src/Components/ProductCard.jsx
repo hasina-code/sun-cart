@@ -1,3 +1,4 @@
+"use client";
 import { Card, Button } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -68,11 +69,12 @@ const ProductCard = ({ product }) => {
       <Link href={`/products/${product.id}`} className="block mt-5">
         <Button
           variant="outline"
-          className="w-ful font-semibold  transition-all duration-300 animate__animated  animate__pulse 
-            animate__infinite animate__slow hover:animate__none hover:bg-black  hover:text-white
-             hover:scale-[1.05] hover:shadow-lg active:scale-95">
-           View Details
-        </Button>
+           className="w-full font-semibold transition-all duration-300 animate__animated animate__pulse 
+             animate__infinite animate__slow hover:animate__none hover:bg-black 
+           hover:text-white hover:scale-[1.05] hover:shadow-lg active:scale-95"
+>
+  View Details
+</Button>
       </Link>
     </Card>
   );

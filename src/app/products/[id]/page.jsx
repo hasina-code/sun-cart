@@ -1,90 +1,140 @@
 "use client";
 
-import { useEffect } from "react";
-import { useRouter, useParams } from "next/navigation";
 import Image from "next/image";
-import products from "@/data/products.json";
-import { FaStar } from "react-icons/fa";
+import { useParams } from "next/navigation";
 
-const ProductDetailsPage = () => {
-  const router = useRouter();
+import { Card, Button } from "@heroui/react";
+
+import {
+  FaStar,
+  FaBoxOpen,
+  FaTag,
+} from "react-icons/fa";
+
+import ProtectedRoute from "@/Components/ProtectedRoute";
+
+import products from "@/data/products.json";
+
+export default function ProductDetailsPage() {
   const params = useParams();
 
   const product = products.find(
     (item) => item.id === Number(params.id)
   );
 
-  useEffect(() => {
-    const user = localStorage.getItem("user");
-
-    //  Not logged in → redirect to login
-    if (!user) {
-      localStorage.setItem(
-        "redirectAfterLogin",
-        `/products/${params.id}`
-      );
-
-      router.push("/login");
-    }
-  }, []);
-
   if (!product) {
     return (
-      <p className="text-center mt-10 text-gray-500">
-        Loading product...
-      </p>
+      <div className="text-center mt-20">
+        <h1 className="text-3xl font-bold">
+          Product Not Found
+        </h1>
+      </div>
     );
   }
 
   return (
-    <section className="max-w-5xl mx-auto px-4 py-16">
+    <ProtectedRoute>
+      <div className="max-w-6xl mx-auto px-4 py-10">
+        <Card className="shadow-xl border p-6">
 
-      {/* Product Image */}
-      <div className="relative w-full h-96 mb-6">
-        <Image
-          src={product.image}
-          alt={product.name}
-          fill
-          className="object-cover rounded-2xl"
-        />
-      </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
 
-      {/* Product Info */}
-      <h1 className="text-3xl font-bold">
-        {product.name}
-      </h1>
+            {/* Product Image */}
+            <div className="relative w-full h-[400px] rounded-2xl overflow-hidden border bg-gray-50">
+              <Image
+                    src={product.image}
+                    alt={product.name}
+                       fill
+                     sizes="(max-width: 768px) 50vw, 24vw"
+                   />
+            </div>
 
-      <p className="text-gray-600 mt-2">
-        {product.description}
-      </p>
+            {/* Product Info */}
+            <div className="space-y-5">
 
-      <div className="mt-4 space-y-2">
+              <div className="flex gap-3 flex-wrap">
+                <span className="bg-orange-100 text-orange-600 px-3 py-1 rounded-full text-sm">
+                  {product.category}
+                </span>
 
-        <p>
-          <b>Brand:</b> {product.brand}
-        </p>
+                <span className="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm">
+                  In Stock: {product.stock}
+                </span>
+              </div>
 
-        <p>
-          <b>Category:</b> {product.category}
-        </p>
+              <h1 className="text-4xl font-bold">
+                {product.name}
+              </h1>
 
-        <p>
-          <b>Stock:</b> {product.stock}
-        </p>
+              <p className="text-lg text-gray-500">
+                Brand:
+                <span className="font-semibold ml-2">
+                  {product.brand}
+                </span>
+              </p>
 
-        <p className="text-green-600 font-bold text-xl">
-          $ {product.price}
-        </p>
+              <div className="flex items-center gap-2 text-yellow-500">
+                <FaStar />
+                <span className="font-semibold">
+                  {product.rating}
+                </span>
+              </div>
 
-       <div className="flex items-center gap-2 text-orange-500">
-          <FaStar />
-            <p className="font-medium">{product.rating}</p>
+              <h2 className="text-3xl font-bold text-primary">
+                ${product.price}
+              </h2>
+
+              <p className="text-gray-600 leading-7">
+                {product.description}
+              </p>
+
+              {/* Extra Info */}
+              <div className="grid grid-cols-2 gap-4 pt-4">
+
+                <div className="border rounded-xl p-4 flex items-center gap-3">
+                  <FaBoxOpen className="text-xl text-primary" />
+
+                  <div>
+                    <p className="text-sm text-gray-500">
+                      Stock
+                    </p>
+
+                    <h3 className="font-bold">
+                      {product.stock} Available
+                    </h3>
+                  </div>
+                </div>
+
+                <div className="border rounded-xl p-4 flex items-center gap-3">
+                  <FaTag className="text-xl text-primary" />
+
+                  <div>
+                    <p className="text-sm text-gray-500">
+                      Category
+                    </p>
+
+                    <h3 className="font-bold">
+                      {product.category}
+                    </h3>
+                  </div>
+                </div>
+              </div>
+
+              {/* Buttons */}
+              <div className="flex gap-4 pt-5">
+                <Button color="primary">
+                  Buy Now
+                </Button>
+
+                <Button variant="bordered">
+                  Add to Cart
+                </Button>
+              </div>
+
+            </div>
           </div>
-
+        </Card>
       </div>
-
-    </section>
+    </ProtectedRoute>
   );
-};
-
-export default ProductDetailsPage;
+}

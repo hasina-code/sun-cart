@@ -43,76 +43,72 @@ const Hero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setFade(false);
-
       setTimeout(() => {
         setIndex((prev) => (prev + 1) % slides.length);
         setFade(true);
       }, 300);
     }, 3500);
-
     return () => clearInterval(interval);
   }, []);
 
   const slide = slides[index];
 
   return (
-    <section className="relative w-full h-[70vh] overflow-hidden">
-      {/* Background Image */}
-      <div
-        className={`absolute inset-0 transition-opacity duration-500 ${
-          fade ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        <Image
-          src={slide.image}
-          alt="hero"
-          fill
-          className="object-cover"
-          priority
-        />
-      </div>
-
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/60" />
-
-      {/* Content */}
-      <div className="relative h-full flex flex-col items-center justify-center text-center px-6 space-y-4">
+    <section className="bg-gray-100 py-6 md:py-10 max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
         
-        {/* Icon -*/}
-        <div className={`text-5xl ${slide.accentColor} animate-pulse drop-shadow-lg transition-colors duration-500`}>
-          {slide.icon}
-        </div>
+        <div className="relative w-full h-[450px] md:h-[600px] overflow-hidden rounded-xl  bg-black">
+          
+          {/* Background Image */}
+          <div
+            className={`absolute inset-0 transition-all duration-700 ease-in-out ${
+              fade ? "opacity-100 scale-100" : "opacity-0 scale-105"
+            }`}
+          >
+            <Image
+              src={slide.image}
+              alt={slide.title}
+              fill
+              className="object-cover"
+              priority
+            />
+            
+            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+          </div>
+          <div className="relative h-full flex flex-col items-start justify-center px-8 md:px-16 space-y-4 md:space-y-6">
+            
+            <div className={`text-3xl md:text-4xl ${slide.accentColor} animate-pulse drop-shadow-lg`}>
+              {slide.icon}
+            </div>
 
-        {/* Title */}
-        <h1 className={`text-3xl md:text-5xl font-bold ${slide.titleColor} drop-shadow-lg transition-colors duration-500`}>
-          {slide.title}
-        </h1>
+            <h1 className={`text-3xl md:text-6xl font-black max-w-2xl leading-tight ${slide.titleColor} drop-shadow-md`}>
+              {slide.title}
+            </h1>
 
-        {/* Description */}
-        <p className="text-sm md:text-lg text-gray-200 max-w-xl">
-          {slide.desc}
-        </p>
+            <p className="text-sm md:text-xl text-gray-200 max-w-lg font-medium leading-relaxed">
+              {slide.desc}
+            </p>
 
-        {/* Button */}
+           {/* Button */}
         <Link
           href="/products"
           className={`${slide.btnStyle} px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg`}
         >
           Shop Now
         </Link>
-      </div>
+          </div>
 
-      {/* Dots */}
-      <div className="absolute bottom-5 flex gap-2 left-1/2 -translate-x-1/2">
-        {slides.map((_, i) => (
-          <div
-            key={i}
-            className={`w-3 h-3 rounded-full transition-all duration-500 ${
-              i === index ? "bg-white scale-125" : "bg-white/40"
-            }`}
-          />
-        ))}
-      </div>
+          {/* Dots */}
+          <div className="absolute bottom-6 right-8 flex gap-2">
+            {slides.map((_, i) => (
+              <div
+                key={i}
+                className={`transition-all duration-500 rounded-full ${
+                  i === index ? "w-8 h-2 bg-white" : "w-2 h-2 bg-white/40"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
     </section>
   );
 };
